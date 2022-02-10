@@ -38,7 +38,7 @@ if(acak.lower() == 'y'):
     random.shuffle(sorted_files)
 
 number = ["%04d" % x for x in range(1, len(files)+1)]
-new_filenames = [{'oldname':file['oldname'], 'newname':''.join([number[index], ' || ', file['newname']])} for index, file in enumerate(sorted_files)]
+new_filenames = [{'oldname':file['oldname'], 'newname':''.join([number[index], ' || ', file['newname'].replace('[', '(').replace(']', ')')])} for index, file in enumerate(sorted_files)]
 sorted_new_filenames = sorted(new_filenames, key=lambda d: d['newname'])
 
 print('\nFound %d MP3 Files\n' % len(files))
